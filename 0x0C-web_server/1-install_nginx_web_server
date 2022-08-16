@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Installs nginx on web-01 server
+#
+# 1)    sudo apt install nginx
+# 2)    delete /etc/nginx/sites-enabled/default
+# 3)    make directory /var/www/site1
+# 4)    create file /var/www/site1/index.html with "Hello World"
+# 5)    create .conf file in /etc/nginx/conf.d
+#           - listen on port 80
+#           - set root to /var/www/site1
+#           - set index
+# 6)    nginx -s reload
+
+#1
+sudo apt -y update
+sudo apt -y install nginx
+
+#2
+rm /etc/nginx/sites-enabled/default
+
+#3
+sudo mkdir /var/www/site1
+
+#4
+sudo echo "Hello World" > /var/www/site1/index.html
+
+#5
+sudo echo "server{
+	listen 80;
+	root /var/www/site1;
+	index index.html;
+}" > /etc/nginx/conf.d/site1.conf
+
+#6
+sudo nginx -s reload
