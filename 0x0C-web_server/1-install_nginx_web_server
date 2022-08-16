@@ -22,14 +22,14 @@ rm /etc/nginx/sites-enabled/default
 sudo mkdir /var/www/site1
 
 #4
-sudo echo "Hello World" > /var/www/site1/index.html
+echo "Hello World" | sudo tee /var/www/site1/index.html > /dev/null
 
 #5
-sudo echo "server{
+echo "server{
 	listen 80;
 	root /var/www/site1;
 	index index.html;
-}" > /etc/nginx/conf.d/site1.conf
+}" | sudo tee /etc/nginx/conf.d/site1.conf > /dev/null
 
 #6
 sudo nginx -s reload
