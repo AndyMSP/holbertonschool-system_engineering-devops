@@ -29,6 +29,7 @@ mkdir /var/www/tacobell
 
 #4
 echo "Hello World" > /var/www/tacobell/index.html
+echo "Ceci n'est pas une page" > /var/www/tacobell/custom_404.html
 
 #5
 echo "server{
