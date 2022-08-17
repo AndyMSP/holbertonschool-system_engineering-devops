@@ -16,7 +16,7 @@ sudo apt -y update
 sudo apt -y install nginx
 
 #2
-rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-enabled/default
 
 #3
 sudo mkdir /var/www/site1
@@ -32,4 +32,4 @@ echo "server{
 }" | sudo tee /etc/nginx/conf.d/site1.conf > /dev/null
 
 #6
-sudo nginx -s reload
+sudo service nginx restart
