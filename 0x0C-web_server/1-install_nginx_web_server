@@ -12,24 +12,24 @@
 # 6)    nginx -s reload
 
 #1
-sudo apt -y update
-sudo apt -y install nginx
+apt -y update
+apt -y install nginx
 
 #2
-sudo rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default
 
 #3
-sudo mkdir /var/www/tacobell
+mkdir /var/www/tacobell
 
 #4
-echo "Hello World" | sudo tee /var/www/tacobell/index.html > /dev/null
+echo "Hello World" > /var/www/tacobell/index.html
 
 #5
 echo "server{
 	listen 80;
 	root /var/www/tacobell;
 	index index.html;
-}" | sudo tee /etc/nginx/conf.d/tacobell.conf > /dev/null
+}" > /etc/nginx/conf.d/tacobell.conf
 
 #6
-sudo service nginx restart
+service nginx restart
