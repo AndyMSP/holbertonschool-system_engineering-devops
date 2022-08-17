@@ -39,6 +39,13 @@ echo "server{
 	location /redirect_me {
 		return 301 http://churger.tech/;
 	}
+
+	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		root /var/www/tacobell;
+		internal;
+	}
+
 }" > /etc/nginx/conf.d/tacobell.conf
 
 #6
