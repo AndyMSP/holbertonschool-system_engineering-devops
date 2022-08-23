@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Installs nginx on web-01 server
+#
+# 1)    sudo apt install nginx
+# 2)	delete old files
+# 3)    delete /etc/nginx/sites-enabled/default
+# 4)    make directory /var/www/tacobell
+# 5)    create file /var/www/tacobell/index.html with "Hello World"
+# 6)    create .conf file in /etc/nginx/conf.d
+#           - listen on port 80
+#           - set root to /var/www/tacobell
+#           - set index
+# 7)    nginx -s reload
+
+#1
+apt -y update
+apt -y install nginx
+
+#2
+rm -rf /var/www/tacobell
+rm /etc/nginx/conf.d/tacobell.conf
+
+
+#2
+rm /etc/nginx/sites-enabled/default
+
+#3
+mkdir /var/www/tacobell
+
+#4
+echo "Hello World" > /var/www/tacobell/index.html
+echo "Ceci n'est pas une page" > /var/www/tacobell/custom_404.html
+
+#5
+echo "server{
+	listen 80;
+	root /var/www/tacobell;
+	index index.html;
+
+	add_header X-Served-By $HOSTNAME;
+
+	location /redirect_me {
+		return 301 http://churger.tech/;
+	}
+
+	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		root /var/www/tacobell;
+		internal;
+	}
+
+}" > /etc/nginx/conf.d/tacobell.conf
+
+#6
+service nginx restart
