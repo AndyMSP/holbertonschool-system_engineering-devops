@@ -19,3 +19,5 @@ backend myservers
   balance roundrobin
   server web1 184.73.131.136
   server web2 3.93.174.162" > /etc/haproxy/haproxy.cfg
+
+service haproxy restart;
