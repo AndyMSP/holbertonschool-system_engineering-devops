@@ -31,6 +31,7 @@ file{ '/var/www/tacobell/custom_404.html':
 # Server config file
 file{ '/etc/nginx/conf.d/tacobell.conf':
     ensure  => 'present',
+    notify => Service['nginx'],
     content =>
     "server{
 	listen 80;
@@ -52,8 +53,8 @@ file{ '/etc/nginx/conf.d/tacobell.conf':
 }"
 }
 
-
-# Restart nginx server
-exec{ 'restart_server':
-    command => '/usr/sbin/service nginx restart'
-}
+# Restart nginx
+service { 'nginx':
+    ensure  => 'running',
+    enable  => true
+  }
