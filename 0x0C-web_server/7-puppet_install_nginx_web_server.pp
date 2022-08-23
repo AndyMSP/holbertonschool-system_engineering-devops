@@ -25,7 +25,7 @@ file{ '/var/www/tacobell/index.html':
 # Ensure custom 404 page is present
 file{ '/var/www/tacobell/custom_404.html':
     ensure  => 'present',
-    content => "Ceci n'est pas une page done with puppet\n"
+    content => "Ceci n'est pas une page applied with puppet\n"
 }
 
 # Server config file
@@ -48,4 +48,10 @@ file{ '/etc/nginx/conf.d/tacobell.conf':
 	}
 
 }"
+}
+
+
+# Restart nginx server
+exec{ 'restart_server':
+    command => '/usr/sbin/service nginx restart'
 }
