@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Change nginx to listen on port 80 and restart
 sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo sed -i 's/status_of_proc -p $PID "$DAEMON" "$NAME" && exit 0 || exit $?/echo " * nginx is not running"/g' /etc/init.d/nginx
 sudo service nginx restart
-sudo service nginx stop
