@@ -38,7 +38,7 @@ file{ '/etc/nginx/conf.d/tacobell.conf':
 	root /var/www/tacobell;
 	index index.html;
 
-    add_header X-Served-By ${hostname};
+	add_header X-Served-By ${hostname};
 
 	location /redirect_me {
 		return 301 http://churger.tech/;
