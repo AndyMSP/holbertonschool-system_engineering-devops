@@ -1,0 +1,16 @@
+defaults
+  mode http
+  timeout client 10s
+  timeout connect 5s
+  timeout server 10s 
+  timeout http-request 10s
+
+frontend myfrontend
+  bind *:80
+  bind *:443 ssl crt /etc/haproxy/certs/www.tacobell.tech.pem
+  default_backend myservers
+
+backend myservers
+  balance roundrobin
+  server web1 184.73.131.136
+  server web2 3.93.174.162
