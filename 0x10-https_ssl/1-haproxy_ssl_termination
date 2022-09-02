@@ -12,5 +12,5 @@ frontend myfrontend
 
 backend myservers
   balance roundrobin
-  server web1 184.73.131.136
-  server web2 3.93.174.162
+  server web1 184.73.131.136:80
+  server web2 3.93.174.162:80
