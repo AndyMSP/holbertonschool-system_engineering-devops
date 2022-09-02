@@ -14,12 +14,12 @@ echo \
 
 frontend myfrontend
   bind *:80
-  bind *:443 ssl crt /etc/haproxy/certs/tacobell.com.pem
+  bind *:443 ssl crt /etc/haproxy/certs/www.tacobell.tech.pem
   default_backend myservers
 
 backend myservers
   balance roundrobin
-  server web1 184.73.131.136
-  server web2 3.93.174.162" > /etc/haproxy/haproxy.cfg
+  server web1 184.73.131.136:80
+  server web2 3.93.174.162:80" > /etc/haproxy/haproxy.cfg
 
 service haproxy restart;
