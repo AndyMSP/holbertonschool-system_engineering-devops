@@ -6,8 +6,8 @@ defaults
   timeout http-request 10s
 
 frontend myfrontend
-  bind *:80
-  bind *:443 ssl crt /etc/haproxy/certs/www.tacobell.tech.pem
+  bind :80
+  bind :443 ssl crt /etc/haproxy/certs/www.tacobell.tech.pem
   default_backend myservers
 
 backend myservers
