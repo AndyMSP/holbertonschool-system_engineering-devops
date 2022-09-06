@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# runs whoami command as different user
+
+runuser -u $1 whoami
