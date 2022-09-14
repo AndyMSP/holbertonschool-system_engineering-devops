@@ -1,32 +1,39 @@
 #!/usr/bin/python3
 # Script interacts with API to retrieve and present data
 
-from sys import argv
-from requests import get
-import json
 
-emp_id = argv[1]
+def task_inquiry():
+    """Get and print data about employees and their responsibilities"""
+    from sys import argv
+    from requests import get
+    import json
 
-user = get('https://jsonplaceholder.typicode.com/users/{}'.format(emp_id))\
-    .json()
-EMPLOYEE_NAME = user.get('name')
+    emp_id = argv[1]
 
-todos = get(
-    'https://jsonplaceholder.typicode.com/todos?userId={}'
-    .format(emp_id)).json()
+    user = get('https://jsonplaceholder.typicode.com/users/{}'.format(emp_id))\
+        .json()
+    EMPLOYEE_NAME = user.get('name')
 
-TOTAL_NUMBER_OF_TASKS = len(todos)
+    todos = get(
+        'https://jsonplaceholder.typicode.com/todos?userId={}'
+        .format(emp_id)).json()
 
-done = []
-for task in todos:
-    if (task.get('completed') is True):
-        done.append(task)
+    TOTAL_NUMBER_OF_TASKS = len(todos)
 
-NUMBER_OF_DONE_TASKS = len(done)
+    done = []
+    for task in todos:
+        if (task.get('completed') is True):
+            done.append(task)
 
-print(
-    'Employee {} is done with tasks({}/{}]):'
-    .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS)
-)
+    NUMBER_OF_DONE_TASKS = len(done)
 
-[print('    {}'.format(task.get('title'))) for task in done]
+    print(
+        'Employee {} is done with tasks({}/{}]):'
+        .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS)
+    )
+
+    [print('    {}'.format(task.get('title'))) for task in done]
+
+
+if __name__ == '__main__':
+    task_inquiry()
