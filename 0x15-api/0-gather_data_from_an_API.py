@@ -4,9 +4,9 @@
 
 def task_inquiry():
     """Get and print data about employees and their responsibilities"""
-    from sys import argv
-    from requests import get
     import json
+    from requests import get
+    from sys import argv
 
     emp_id = argv[1]
 
