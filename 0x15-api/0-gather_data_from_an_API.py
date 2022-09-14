@@ -32,7 +32,7 @@ def task_inquiry():
         .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS)
     )
 
-    [print('\t{}'.format(task.get('title'))) for task in done]
+    [print('\t {}'.format(task.get('title'))) for task in done]
 
 
 if __name__ == '__main__':
