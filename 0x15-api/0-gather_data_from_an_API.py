@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Script interacts with API to retrieve and present data
+"""Script interacts with API to retrieve and present data"""
 
 
 def task_inquiry():
@@ -28,7 +28,7 @@ def task_inquiry():
     NUMBER_OF_DONE_TASKS = len(done)
 
     print(
-        'Employee {} is done with tasks({}/{}]):'
+        'Employee {} is done with tasks({}/{}):'
         .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS)
     )
 
