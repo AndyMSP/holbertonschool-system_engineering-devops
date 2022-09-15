@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'https://jsonplaceholder.typicode.com/todos?userId={}'
         .format(emp_id)).json()
 
-    with open('USER_ID.csv', 'w+', newline='') as csvfile:
+    with open('{}.csv'.format(emp_id), 'w+', newline='') as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in todos:
             line = [
