@@ -1,5 +1,5 @@
-#change file name
-file_line { 'bashrc_proxy':
+# change file name
+file_line { 'remove a p':
   ensure => present,
   path   => '/var/www/html',
   line   => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.php' );'
