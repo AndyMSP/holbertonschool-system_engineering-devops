@@ -1,0 +1,2 @@
+This is the text that gets assigned to $a.
+And this too.
