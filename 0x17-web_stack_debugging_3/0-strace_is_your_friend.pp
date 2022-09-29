@@ -1,7 +1,7 @@
 # change file name
 file_line { 'remove a p':
   ensure => present,
-  path   => '/var/www/html',
+  path   => '/var/www/html/wb-config.php',
   line   => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.php' );',
   match  => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.phpp' );'
 }
