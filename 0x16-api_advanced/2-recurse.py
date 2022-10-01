@@ -18,12 +18,14 @@ def recurse(subreddit, hot_list=[], after='blank'):
 
     if (res.status_code != 200):
         return (None)
-    elif (after is None):
+    else:
+        after = res.json()['data']['after']
+        
+    if (after is None):
         for post in res.json()['data']['children']:
             hot_list.append(post['data']['title'])
         return (hot_list)
     else:
         for post in res.json()['data']['children']:
             hot_list.append(post['data']['title'])
-        after = res.json()['data']['after']
         return (recurse(subreddit, hot_list=hot_list, after=after))
