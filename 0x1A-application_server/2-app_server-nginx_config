@@ -1,0 +1,10 @@
+# configuration file /etc/nginx/sites-enabled/web_flask:
+server {
+        listen 80;
+        server_name 184.73.131.136;
+
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/home/ubuntu/AirBnB_clone_v2/web_flask/web_flask.sock;
+        }
+}
