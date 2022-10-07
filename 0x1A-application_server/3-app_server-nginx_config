@@ -1,7 +1,6 @@
 # configuration file /etc/nginx/sites-enabled/web_flask:
 server {
         listen 80;
-        server_name 184.73.131.136;
 
         location /airbnb-onepage {
                 include proxy_params;
