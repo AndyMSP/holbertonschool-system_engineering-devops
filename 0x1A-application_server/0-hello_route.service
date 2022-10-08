@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve 0-hello_route
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/holbertonschool-AirBnB_clone_v4/web_flask
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 1 --bind 0.0.0.0:5000 0-hello_route:app
+
+[Install]
+WantedBy=multi-user.target
