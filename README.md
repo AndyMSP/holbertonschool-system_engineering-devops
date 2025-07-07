@@ -4,3 +4,5 @@ This repository includes projects focused on Systems Engineering and Devops orga
 
 ## Bash
 * 0x00-Shell_basics
+* 0x01-Shell_permissions
+
