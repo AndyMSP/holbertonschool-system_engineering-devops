@@ -1,6 +1,3 @@
-*
-!README.md
-!.gitignore
-!*.sh
-!*.pub
-!holberton
+.gitignore
+0-RSA_private_key
+/practice
