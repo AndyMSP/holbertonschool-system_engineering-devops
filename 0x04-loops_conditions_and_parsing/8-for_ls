@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Print contents of directory with first "-" and earlier removed from each file name
+
+for file in *; do
+	echo "$file" | cut --delimiter=- -f 2-
+done
