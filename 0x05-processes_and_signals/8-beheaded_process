@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Kill the process created by 7-highlander
+
+pkill --signal SIGKILL -f 7-highlander
