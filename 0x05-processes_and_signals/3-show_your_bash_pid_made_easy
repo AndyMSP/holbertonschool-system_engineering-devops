@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Display process and name if it includes bash
-
+#shellcheck disable=SC2078
 pgrep -l bash
