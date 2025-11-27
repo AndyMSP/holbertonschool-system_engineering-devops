@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Show all processes
+
+ps -AH u
