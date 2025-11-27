@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Print pid of this process
+
+echo $$
